@@ -1,5 +1,5 @@
 # Computer Vision Research Repo
-This repository is for the Computer Vision subteam's research purpose
+This repository is for the purpose of Computer Vision subteam's research 
 
 ## Getting Started
 
