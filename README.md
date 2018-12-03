@@ -4,7 +4,7 @@ This repository is for the purpose of Computer Vision subteam's research
 ## Getting Started
 
 To run the object detector for your webcam, cd into the object_detector_app and run:<br />
-`python object_detection_app.py`
+`python object_detection_app.py`<br />
 Have fun!
 
 ## Contributors
