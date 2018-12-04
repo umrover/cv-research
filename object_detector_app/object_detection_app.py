@@ -16,15 +16,16 @@ CWD_PATH = os.getcwd()
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 #Models at: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 # MODEL_NAME = 'ssdlite_mobilenet_v2_coco_2018_05_09'
-MODEL_NAME = 'tennis_ball_model'
+# MODEL_NAME = 'ssd_mobilenet_v1_fpn_coco_2018_07_03'
+MODEL_NAME = 'tennis_ball_model_ssdlite'
 PATH_TO_CKPT = os.path.join(CWD_PATH, 'object_detection', MODEL_NAME, 'frozen_inference_graph.pb')
 
 # List of the strings that is used to add correct label for each box.
-#PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'tennis_label_map.pbtxt')
+# PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'mscoco_label_map.pbtxt')
 PATH_TO_LABELS = os.path.join(CWD_PATH, 'object_detection', 'data', 'tennis_label_map.pbtxt')
 
-NUM_CLASSES = 1
-# NUM_CLASSES = 90
+# NUM_CLASSES = 1
+NUM_CLASSES = 90
 
 # Loading label map
 label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
