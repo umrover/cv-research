@@ -7,7 +7,7 @@ Created on Wed Jan 16 19:11:54 2019
 
 # import the necessary packages
 import cv2
-
+import numpy as np
 
 refPt = (0, 0)
 
@@ -27,7 +27,12 @@ def click_and_crop(event, x, y, flags, param):
     # check to see if the left mouse button was released
     elif event == cv2.EVENT_LBUTTONUP:
         
-        print(str(refPt[0]), str(refPt[1]))
+        print("x:", str(refPt[0]),", y:", str(refPt[1]))
+        pixel = frame[refPt[1]][refPt[0]]
+        print("r:", pixel[2], "g:", pixel[1], "b:", pixel[0])
+        #color = np.uint8([[[pixel[0],pixel[1],pixel[2] ]]])
+        #hsv = cv2.cvtColor(color, cv2.COLOR_BGR2HSV)
+        #print("hsv:", hsv)
 # Check if the webcam is opened correctly
 if not cap.isOpened():
     raise IOError("Cannot open webcam")
