@@ -1,7 +1,7 @@
 # import the necessary packages
 import cv2
 import os, os.path
-
+import math
 
 #image path and valid extensions
 fileDir = input("Enter folder for images and depth ") #specify your path here
@@ -34,8 +34,10 @@ def click_and_crop(event, x, y, flags, param):
     elif event == cv2.EVENT_LBUTTONUP:
         # record the ending (x, y) coordinates and indicate that
         # the cropping operation is finished
-        cv2.circle(image,refPt, 5, (0,0,0), -1)
-        depthpixel = depth[y, x]
+        #cv2.circle(image,refPt, 1, (0,0,0), -1)
+        depthpixel = depth[y,x]
+        if math.isnan(depthpixel):
+           depthpixel = 0
         print(depthpixel)
 
 
@@ -53,6 +55,7 @@ for file in os.listdir(depthDir):
 
 for imagePath in image_path_list:
     image = cv2.imread(imagePath)
+    #image = image1.copy()
     depth = cv2.imread(depth_path_list[counter], cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
 #TODO
     # display the image on screen with imshow()
@@ -73,7 +76,7 @@ for imagePath in image_path_list:
                 filename_without_ext = os.path.splitext(imagePath)[0]
                 extension = os.path.splitext(imagePath)[1]
                 counter = counter + 1
-                new_file_name = str(counter) + "_" + str(refPt[0]) + "_" + str(refPt[1]) + "_" + str(depthpixel)
+                new_file_name = str(counter) + "_" + str(refPt[0]) + "_" + str(refPt[1]) + "_" + str(depthpixel) + "_"
                 
                 new_file_name_with_ext = new_file_name+extension
                 print(new_file_name_with_ext)
