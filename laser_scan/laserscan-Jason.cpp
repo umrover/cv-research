@@ -101,7 +101,8 @@ public:
 					//start_boundary_found = true;
 					for (int findend = i + 16; findend < (int)actual.size(); ++findend) {
 						if (abs(actual[findend] - expected[findend]) < laser_threshold && abs(actual[findend + 1] - expected[findend + 1]) < laser_threshold
-							&& abs(actual[findend + 2] - expected[findend + 2]) < laser_threshold) {
+							&& abs(actual[findend + 2] - expected[findend + 2]) < laser_threshold) { // finds end obstancle boundary if the next three points pass threshold 
+																									//( future change: make the boundary the number of pixels of rover because cant cross it anyways)
 							end_obstacle = findend - 1;
 							break;
 						}
